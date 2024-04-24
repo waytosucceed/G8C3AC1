@@ -1,0 +1,162 @@
+<html>
+    <head> <title>Class Activity 1</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <style>
+            p{
+                font-size:30px;
+                margin-top:10%;
+                font-weight: bold;
+            }
+
+            .maindiv{
+                border: 5px rgb(164, 246, 229) ridge;
+                border-radius: 20px;
+            }
+
+            #nextbtn, #backbtn{
+                width: 25%;
+                font-size:30px;
+                margin-right: 5%
+            }
+
+            #backbtn, #newbtn{
+                display:none;
+            }
+
+            #family{
+                width:95%;
+                height:95%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            #about{
+                font-weight: bold;
+                font-size:40px;
+                color:rgb(7, 7, 89)
+            }
+            #story{
+             
+                font-size: 18px;
+                border-radius: 20px;
+            }
+         
+        
+        </style>
+</head>
+
+    <body> 
+        <div class="header" style="width:100%; box-shadow:5px 5px 10px rgb(0, 0, 0); padding-bottom:10px;">
+            <img src="Logo.png" width="5%" style="float:left; margin-top:25px;" class="img-responsive">
+            <span> <img src="header.png" width="30%" height="100px" class="img-responsive"></span>
+        </div>
+         <br>
+        <br>
+        
+        <center>
+            <h2 id="about">ADJECTIVES</h2>
+         <div class="maindiv container">
+            <center>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11 imgdiv" style= "height: 450px;">
+                <img id="family" src="2.jpg" style="width:100%; height:90%; margin-top:5%;"> 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11" style= "height: 450px;">
+                <p id="story" style="text-align:left; width:100%; margin-top:5%;">
+                    We know that adjectives are words that describe/define or modify nouns.
+                    <br><br>
+                   <span style="color:blue">In a sentence, when we use two or more than two adjectives to describe a
+                   noun we need to follow a specific order and we can never do it randomly.</span> <br> <br><span style="color:rgb(219, 34, 34);">This specific order is simply knowns as the<br> “order of adjectives”.
+                </p> 
+            </div>
+        </center>
+        </div>
+        <br>
+        <div class="" style="text-align:center; padding-top:1%">
+            
+            <button id="backbtn" onclick="backpic()" class="btn btn-success">Back</button>
+            <button id="nextbtn" onclick="update()" class="btn btn-success">Continue</button>
+            <button id="newbtn" onclick="newpage()" class="btn btn-success">Next</button>
+        </div>
+    
+
+        </center>   
+
+        <script>
+
+            var images = ["Assests/1.jpg", "Assests/2.jpg", "Assests/3.jpg", "Assests/4.jpg", "Assests/5.jpg", "Assests/6.jpg", "Assests/7.jpg", "Assests/8.jpg", "Assests/9.jpg", "Assests/10.jpg", "Assests/11.jpg", "Assests/12.jpg"];
+            var para=["This sentence uses 5 adjectives to describe the noun “box” and the adjectives are in the following order: <br> <br>  <u>A</u>:&nbsp; Determiner-Telling us the quantity or number of boxes <br> <u> Big:</u>&nbsp; Size of the box  <br> <u> Old:</u>&nbsp; Age of the box <br> <u> Brown:</u>&nbsp; Colour of the box <br> <u>Wooden:</u>&nbsp; Material of the box",
+                    "Mr Wonka was standing all alone just inside the gates of the factory. What an extraordinary little man he was! He had a black top hat on his head. He wore a tail coat made of a beautiful plum-coloured velvet. His trousers were bottle green. His gloves were pearly grey and in one hand he carried a fine gold-topped walking cane. Covering his chin, there was a small, neat, pointed black-beard – a goatee. Oh, his eyes – his eyes were most marvellously bright. They seemed to be sparkling and twinkling at you all the time. The whole face, in fact, was alight with fun and laughter. ",
+                    "Mr. Wanka has been described as <i>“an extraordinary little man”</i> in the story. <br>The adjective <u>extraordinary</u> which talks about <b style='color:blue'> opinion </b> is mentioned first and the adjective <u>little</u> which tells us about his height/size came later. This is how we are to maintain the order of adjectives. <br> <br>The velvet used in making Mr. Wanka’s tail coat has been described as <i>“beautiful plum-coloured velvet.”</i><br> Here, you can notice that the adjective <u>beautiful</u> which has come first is actually an <b style=color:'blue'> opinion </u> on the looks of the velvet. Then, the adjective <u>plum-coloured</u> has been used to mention the <b style='color:blue'> colour </b> of the velvet.",                    
+                    "Mr. Wanka <i>“carried a fine gold-topped walking cane.”</i> <br> The adjective <u>gold-topped</u> talks about the <b style='color:blue'> material </b> of the top portion of the cane and the adjective <u>walking</u> defines the <b style='color:blue'> purpose </b> of the cane. <br> <br>Mr. Wonka’s goatee has been described in the following order <br> <i>“Covering his chin, there was a small, neat, pointed black-beard – a goatee.”</i> <br><br> Here, the order followed is: <br> size =>physical quality =>shape =>colour.",
+                    "How clever he looked! How quick and sharp and full of life! He kept making quick jerky little movements with his head, cocking it this way and that, and taking everything in with those bright twinkling eyes. He was like a squirrel in the quickness of his movements, like a quick clever old squirrel from the park.",
+                    "<br><br>Q: What are the two adjectives used to describe the eyes of Mr. Wonka? <br> <br><br> Q: What is the order of adjectives in “ like a quick clever old squirrel”?",
+                    "Suddenly, he did a funny little skipping dance in the snow and he spread his arms wide and he smiled at the five children who were clustered near the gates and he called out, <i>“Welcome, my little friends! Welcome to the factory!”</i> His voice was high. <i>“Will you come forward one at a time please,”</i> he called.",
+                    "What should we do when we have two adjectives from the category of opinions: </i> <br>  We often have two <u> adjectives </u> in front of a <u> noun </u>: <br> <br> <i>   an attractive young man <br>  a big blue car <br>  that nasty big dog  </i><br><br>  <u><i> ",
+                    "<br><br>Some adjectives give a general opinion.<br> We can use these adjectives to describe almost any noun:<br> <br> He's a good/wonderful/brilliant/bad/dreadful person. <br><br> That's a good/wonderful/brilliant/bad/dreadful book.",
+                    "<br><br><br>Some adjectives give a specific opinion. We only use these adjectives to describe particular kinds of noun",
+                    "<span style='color:darkblue'> We usually put a general opinion in front of a specific opinion:</span><br>nice tasty soup <br>a nasty uncomfortable armchair <br>a lovely intelligent animal <br><br><span style='color:darkblue'> We usually put an opinion adjective in front of a descriptive adjective:</span><br> nice red dress <br> a silly old man <br>those horrible yellow curtains"
+                    ]
+            
+            
+            var i = -1;
+            function update(){
+                i++
+                document.getElementById("backbtn").style.display="inline-block"
+                if(i > para.length-1){
+                    document.getElementById("nextbtn").style.display="none"
+                    document.getElementById("newbtn").style.display="inline-block"
+                    document.getElementById("family").src = "last.jpg";
+                    document.getElementById("story").style.fontSize="18px"
+                    document.getElementById("story").style.borderLeftStyle="solid"
+                    document.getElementById("story").style.borderLeftColor="rgb(164, 246, 229)"
+                    document.getElementById("story").innerHTML = "Click on the next button,let us quickly look at the table of adjectives and the nouns they are describing in the story"
+                }
+                else{
+                    document.getElementById("story").style.fontSize="18px"
+                    document.getElementById("story").style.backgroundColor="white"
+                    document.getElementById("about").innerHTML="Charlie and the Chocolate Factory"
+                     var updated_image = images[i]; 
+                var newpara =para[i];
+                document.getElementById("family").src = updated_image;
+                document.getElementById("story").innerHTML = newpara;
+              
+            }
+            };
+
+            function newpage(){
+                window.location="grammer.html"
+            }
+
+            function backpic(){
+                i=i-1
+                console.log(i)
+
+                if(i<0){
+                    document.getElementById("story").style.fontSize="18px"
+                   // document.getElementById("story").style.backgroundColor="lightblue"
+                    document.getElementById("backbtn").style.display="none"
+                    document.getElementById("nextbtn").style.display="inline-block"
+                    document.getElementById("family").src = "2.jpg";
+                    document.getElementById("about").innerHTML="Adjectives"
+                    document.getElementById("story").innerHTML = "We know that adjectives are words that describe/define or modify nouns. <br><br><span style='color:blue'>In a sentence, when we use two or more than two adjectives to describe a noun we need to follow a specific order and we can never do it randomly.</span> <br> <br><span style='color:rgb(219, 34, 34);''>This specific order is simply knowns as the<br> 'order of adjectives'.";
+                }
+                else{
+                document.getElementById("story").style.fontSize="18px"
+                document.getElementById("story").style.backgroundColor="white"
+                document.getElementById("nextbtn").style.display="inline-block"
+                var updated_image = images[i]; 
+                var newpara =para[i];
+                document.getElementById("family").src = updated_image;
+                document.getElementById("story").innerHTML = newpara;
+                }
+            }
+
+    
+    </script>
+        
+    </body>
+</html>
